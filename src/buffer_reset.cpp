@@ -76,24 +76,24 @@ void Reset :: actionSet(int state){
 int main(int argc, char **argv){
     ros::init(argc, argv, "state_reset");
 
-    Reset follow_path;
+    Reset action_reset;
 
     while(ros::ok()){
-        if(follow_path.action.is_active() && follow_path.action.active_has_changed()){
+        if(action_reset.action.is_active() && action_reset.action.active_has_changed()){
             // ROS_INFO("Action: Start");
-            follow_path.init();
-            // follow_path.actionSet(0);
-            follow_path.publishClear(true);
-            follow_path.actionSet(1);
+            action_reset.init();
+            // action_reset.actionSet(0);
+            action_reset.publishClear(true);
+            action_reset.actionSet(1);
         }   
-        else if(follow_path.action.active_has_changed() && !(follow_path.action.is_active())){
+        else if(action_reset.action.active_has_changed() && !(action_reset.action.is_active())){
             // ROS_INFO("Action: Done");
-            // follow_path.actionSet(1);
+            // action_reset.actionSet(1);
         }
-        else if(follow_path.action.is_active()){
+        else if(action_reset.action.is_active()){
             // ROS_INFO("Action: Running");
         }else{
-            follow_path.actionSetLastState();
+            action_reset.actionSetLastState();
         }
         ros::spinOnce();
     }

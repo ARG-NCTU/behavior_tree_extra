@@ -121,11 +121,13 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(state_reset src/state_reset.cpp)
-add_executable(state_buffer src/state_buffer.cpp)
+add_executable(buffer_reset src/buffer_reset.cpp)
+add_executable(signal_step_buffer src/signal_step_buffer.cpp)
+add_executable(signal_square_buffer src/signal_square_buffer.cpp)
 
-target_link_libraries(state_reset ${catkin_LIBRARIES})
-target_link_libraries(state_buffer ${catkin_LIBRARIES})
+target_link_libraries(buffer_reset ${catkin_LIBRARIES})
+target_link_libraries(signal_step_buffer ${catkin_LIBRARIES})
+target_link_libraries(signal_square_buffer ${catkin_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/behavior_tree_extra.cpp
